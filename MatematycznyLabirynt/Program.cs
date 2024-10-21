@@ -11,7 +11,11 @@ namespace MatematycznyLabirynt
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Form1 form1 = new Form1();
+            form1.Show();
+            Application.Run();
         }
     }
 }

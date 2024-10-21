@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Za pomocą strzałek na klawiaturze gracz ma za zadanie odnaleźć wyjście z labiryntu. 
+Po pewnym czasie gra ulega zatrzymaniu, a na ekranie ukazuje się zadanie z zakresu
+matematyki elementarnej obejmujące mnożenie i dzielenie do 100. Poprawne
+rozwiązanie działania umożliwia dalszą grę, niepoprawne rozwiązanie zadania skutkuje
+ponownym rozpoczęciem poziomu. W zależności od poziomu gry działania
+matematyczne jak i sama plansza się zmieniają i zwiększają swój poziom trudności. 
+
+
+</value>
+  </data>
 </root>
