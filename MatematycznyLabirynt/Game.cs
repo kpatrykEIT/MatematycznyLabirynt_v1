@@ -10,22 +10,11 @@ using System.Windows.Forms;
 
 namespace MatematycznyLabirynt
 {
-    public partial class Form2 : Form
+    public partial class Game : Form
     {
-        public Form2()
+        public Game()
         {
             InitializeComponent();
         }
-
-
-
-        private void btnHomeForm_Click(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1();
-            form1.Show();
-            this.Close();
-        }
-
-
     }
 }

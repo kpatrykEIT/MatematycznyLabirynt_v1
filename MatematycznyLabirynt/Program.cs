@@ -13,7 +13,7 @@ namespace MatematycznyLabirynt
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form1 form1 = new Form1();
+            MainMenu form1 = new MainMenu();
             form1.Show();
             Application.Run();
         }

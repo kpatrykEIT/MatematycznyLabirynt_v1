@@ -1,8 +1,8 @@
 namespace MatematycznyLabirynt
 {
-    public partial class Form1 : Form
+    public partial class MainMenu : Form
     {
-        public Form1()
+        public MainMenu()
         {
             InitializeComponent();
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
@@ -15,7 +15,7 @@ namespace MatematycznyLabirynt
 
         private void btnHowToPlay_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            Rules form2 = new Rules();
             form2.Show();
             this.Hide();
 

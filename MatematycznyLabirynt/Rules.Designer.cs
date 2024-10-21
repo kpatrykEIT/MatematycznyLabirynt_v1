@@ -1,6 +1,6 @@
 ﻿namespace MatematycznyLabirynt
 {
-    partial class Form2
+    partial class Rules
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rules));
             btnHomeForm = new Button();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
