@@ -13,17 +13,95 @@ namespace MatematycznyLabirynt
     public partial class Game : Form
     {
 
-
+        
         bool goup, godown, goleft, goright, isGameOver;
         int playerSpeed;
         Point previousPosition;
+        private PictureBox currentQuestionBox;
+        private bool questionDisplayed = false;
+
+
+        private void DisablePlayerMovement()
+        {
+            goup = godown = goleft = goright = false; // Wyłącz możliwość poruszania się
+        }
+        private void EnablePlayerMovement()
+        {
+            // Ruch zostanie przywrócony po odpowiedzi na pytanie
+            // Można też dostosować do potrzeb (jeśli np. mają być inne warunki poruszania się)
+        }
+
+
+        private void resetGame()
+        {
+
+            player.Left = 167;
+            player.Top = 769;
+            playerSpeed = 10;
+            EnablePlayerMovement();
+            questionTimer.Start();
+            timer1.Start();
+
+           
+
+        }
 
         public Game()
         {
             InitializeComponent();
 
             resetGame();
+
+
+
+            questionTimer.Start(); // Rozpoczęcie timera
         }
+
+        private void ShowMathQuestion(object sender, EventArgs e)
+        {
+
+            
+            if (!questionDisplayed)
+            { 
+
+                questionDisplayed = true; // Ustaw flagę na true, aby blokować wyświetlanie kolejnych pytań
+                DisablePlayerMovement();
+                // Tworzenie okna pytania
+                questionTimer.Stop();
+                MathQuestions mathQuestions = new MathQuestions();
+               DialogResult result = mathQuestions.ShowDialog(); // Pokaż okno dialogowe
+
+                if (true) // Jeśli gracz odpowiedział
+                {
+                    if (mathQuestions.isCorrect) // Sprawdzenie poprawności odpowiedzi
+                    {
+                        // Odpowiedź poprawna, pozwól grać dalej
+                        //MessageBox.Show("Odpowiedź poprawna! Możesz grać dalej.");
+                        EnablePlayerMovement();
+                        //player.Location = previousPosition;
+                    }
+                    else
+                    {
+                        // Odpowiedź błędna, resetuj grę
+                        resetGame();
+                       // MessageBox.Show("Błędna odpowiedź! Gra zostanie zresetowana.");
+
+
+                    }
+                }
+                questionTimer.Start();
+                questionDisplayed = false; // Resetuj flagę po zamknięciu okna pytania
+            }
+
+        }
+
+
+        
+
+
+        
+
+
 
         private void gameWon()
         {
@@ -76,8 +154,13 @@ namespace MatematycznyLabirynt
             }
         }
 
+
+
         private void mainGameTimer(object sender, EventArgs e)
         {
+
+            if (questionDisplayed) return;
+
 
             previousPosition = player.Location;
 
@@ -112,6 +195,7 @@ namespace MatematycznyLabirynt
                         {
                             player.Location = previousPosition;
                             break;
+
                         }
                     }
                     if ((string)x.Tag == "winningSpot")
@@ -122,33 +206,63 @@ namespace MatematycznyLabirynt
 
                         }
                     }
+
+                    /*
+                    if ((string)x.Tag == "question" && player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        if (!questionDisplayed)
+                        {
+
+                            questionDisplayed = true;
+                            currentQuestionBox = (PictureBox)x; // Przypisz aktualny PictureBox z pytaniem
+
+
+                            MathQuestions mathQuestions = new MathQuestions();
+                            
+                            if(mathQuestions.ShowDialog() == DialogResult.OK)
+                            {
+                                if (!mathQuestions.isCorrect)
+                                {
+                                    MessageBox.Show("Gra zostanie zrestartowana!", "Przegrana");
+                                    resetGame();
+
+                                }
+                                else if (mathQuestions.isCorrect)
+                                {
+                                    currentQuestionBox.Enabled = false;
+
+                                }
+
+                            }
+
+                            questionDisplayed = false;
+
+                            //player.Location = previousPosition;
+
+                            // Resetuj flagę pytania
+
+                        } 
+
+
+
+
+                    }
+                    */
+
                 }
+
             }
+
 
         }
 
-        private void resetGame()
-        {
-            
-            player.Left = 167;
-            player.Top = 769;
-            playerSpeed = 30;
 
-            timer1.Start();
-
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox)
-                {
-                    x.Visible = true;
-
-                }
-            }
-        }
 
         private void gameOver()
         {
 
         }
+
+        
     }
 }

@@ -95,6 +95,7 @@
             winningSpot = new PictureBox();
             player = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            questionTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -816,12 +817,17 @@
             // 
             timer1.Tick += mainGameTimer;
             // 
+            // questionTimer
+            // 
+            questionTimer.Interval = 10000;
+            questionTimer.Tick += ShowMathQuestion;
+            // 
             // Game
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(1264, 985);
+            ClientSize = new Size(1281, 896);
             Controls.Add(player);
             Controls.Add(winningSpot);
             Controls.Add(pictureBox62);
@@ -1027,5 +1033,6 @@
         private PictureBox winningSpot;
         private PictureBox player;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer questionTimer;
     }
 }
