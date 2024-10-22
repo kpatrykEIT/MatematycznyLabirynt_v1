@@ -5,11 +5,12 @@ namespace MatematycznyLabirynt
         public MainMenu()
         {
             InitializeComponent();
+            this.ActiveControl = null;
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Zamyka ca³¹ aplikacjê, gdy Form1 zostaje zamkniête
+            // Zamyka ca³¹ aplikacjê, gdy MainMenu zostaje zamkniête
             Application.Exit();
         }
 

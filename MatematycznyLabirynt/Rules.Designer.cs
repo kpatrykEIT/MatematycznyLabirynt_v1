@@ -37,7 +37,7 @@
             // 
             // btnHomeForm
             // 
-            btnHomeForm.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHomeForm.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnHomeForm.Location = new Point(910, 856);
             btnHomeForm.Name = "btnHomeForm";
             btnHomeForm.Size = new Size(320, 89);
@@ -48,7 +48,7 @@
             // 
             // textBox1
             // 
-            textBox1.BackColor = Color.FromArgb(0, 64, 0);
+            textBox1.BackColor = Color.Teal;
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Trebuchet MS", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.ForeColor = SystemColors.Menu;
@@ -61,7 +61,7 @@
             // 
             // textBox2
             // 
-            textBox2.BackColor = Color.FromArgb(0, 64, 0);
+            textBox2.BackColor = Color.Teal;
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Segoe UI", 72F, FontStyle.Regular, GraphicsUnit.Point);
             textBox2.ForeColor = SystemColors.Menu;
@@ -73,7 +73,7 @@
             // 
             // textBox3
             // 
-            textBox3.BackColor = Color.FromArgb(0, 64, 0);
+            textBox3.BackColor = Color.Teal;
             textBox3.BorderStyle = BorderStyle.None;
             textBox3.Font = new Font("Segoe UI", 48F, FontStyle.Italic, GraphicsUnit.Point);
             textBox3.ForeColor = SystemColors.Menu;
@@ -83,17 +83,17 @@
             textBox3.TabIndex = 3;
             textBox3.Text = "Powodzenia!";
             // 
-            // Form2
+            // Rules
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(0, 64, 0);
+            BackColor = Color.Teal;
             ClientSize = new Size(1264, 985);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(btnHomeForm);
-            Name = "Form2";
+            Name = "Rules";
             Text = "Form2";
             ResumeLayout(false);
             PerformLayout();

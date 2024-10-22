@@ -36,22 +36,24 @@
             // 
             // textBox1
             // 
-            textBox1.BackColor = Color.FromArgb(0, 64, 0);
+            textBox1.BackColor = Color.Teal;
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Enabled = false;
             textBox1.Font = new Font("Segoe UI", 72F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.ForeColor = SystemColors.Window;
+            textBox1.ForeColor = Color.Transparent;
             textBox1.Location = new Point(148, 144);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.RightToLeft = RightToLeft.No;
             textBox1.Size = new Size(996, 128);
             textBox1.TabIndex = 0;
+            textBox1.TabStop = false;
             textBox1.Text = "Matematyczny Labirynt";
             // 
             // btnPlay
             // 
-            btnPlay.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlay.BackColor = Color.White;
+            btnPlay.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlay.ForeColor = Color.Black;
             btnPlay.Location = new Point(505, 381);
             btnPlay.Name = "btnPlay";
             btnPlay.Size = new Size(277, 109);
@@ -61,7 +63,7 @@
             // 
             // btnHowToPlay
             // 
-            btnHowToPlay.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHowToPlay.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnHowToPlay.Location = new Point(505, 546);
             btnHowToPlay.Name = "btnHowToPlay";
             btnHowToPlay.Size = new Size(277, 109);
@@ -72,7 +74,7 @@
             // 
             // btnQuit
             // 
-            btnQuit.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnQuit.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnQuit.Location = new Point(505, 690);
             btnQuit.Name = "btnQuit";
             btnQuit.Size = new Size(277, 109);
@@ -81,19 +83,18 @@
             btnQuit.UseVisualStyleBackColor = true;
             btnQuit.Click += btnQuit_Click;
             // 
-            // Form1
+            // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(0, 64, 0);
+            BackColor = Color.Teal;
             ClientSize = new Size(1264, 985);
             Controls.Add(btnQuit);
             Controls.Add(btnHowToPlay);
             Controls.Add(btnPlay);
             Controls.Add(textBox1);
-            Name = "Form1";
+            Name = "MainMenu";
             Text = "Matematyczny Labirynt by Patryk Krukowski 193393";
-            TransparencyKey = Color.Black;
             ResumeLayout(false);
             PerformLayout();
         }
