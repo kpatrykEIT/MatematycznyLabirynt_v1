@@ -26,5 +26,12 @@ namespace MatematycznyLabirynt
         {
             Application.Exit();
         }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Game game1 = new Game();
+            game1.Show();
+        }
     }
 }

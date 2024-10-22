@@ -60,6 +60,7 @@
             btnPlay.TabIndex = 1;
             btnPlay.Text = "GRAJ";
             btnPlay.UseVisualStyleBackColor = true;
+            btnPlay.Click += btnPlay_Click;
             // 
             // btnHowToPlay
             // 
