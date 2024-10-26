@@ -36,6 +36,7 @@
             // 
             // btnChangeBackColor
             // 
+            btnChangeBackColor.ForeColor = SystemColors.ButtonFace;
             btnChangeBackColor.Location = new Point(87, 348);
             btnChangeBackColor.Name = "btnChangeBackColor";
             btnChangeBackColor.Size = new Size(124, 75);
@@ -47,6 +48,7 @@
             // btnBackToMenu
             // 
             btnBackToMenu.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBackToMenu.ForeColor = SystemColors.ButtonFace;
             btnBackToMenu.Location = new Point(779, 793);
             btnBackToMenu.Name = "btnBackToMenu";
             btnBackToMenu.Size = new Size(420, 79);

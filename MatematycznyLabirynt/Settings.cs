@@ -15,7 +15,6 @@ namespace MatematycznyLabirynt
         public Settings()
         {
             InitializeComponent();
-            numericUpDownFontSize.Value = (decimal)SettingsClass.FontSize; // Ustaw początkową wartość
             this.Load += SettingsLoad;
 
 
@@ -32,7 +31,7 @@ namespace MatematycznyLabirynt
         {
             //this.BackColor = SettingsClass.BackgroundColor;
             UpdateBackgroundColor(this, SettingsClass.BackgroundColor);
-            UpdateFontSize(this, SettingsClass.FontSize);
+
 
 
 
@@ -93,6 +92,6 @@ namespace MatematycznyLabirynt
         }
 
 
-        
+
     }
 }
