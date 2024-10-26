@@ -30,12 +30,8 @@
         {
             btnChangeBackColor = new Button();
             btnBackToMenu = new Button();
-            btnChangeFontSize = new Button();
-            numericUpDownFontSize = new NumericUpDown();
-            settingsTextBox = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownFontSize).BeginInit();
+            label1 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // btnChangeBackColor
@@ -59,58 +55,27 @@
             btnBackToMenu.UseVisualStyleBackColor = true;
             btnBackToMenu.Click += btnBackToMenu_Click;
             // 
-            // btnChangeFontSize
+            // label1
             // 
-            btnChangeFontSize.Location = new Point(87, 505);
-            btnChangeFontSize.Name = "btnChangeFontSize";
-            btnChangeFontSize.Size = new Size(124, 75);
-            btnChangeFontSize.TabIndex = 2;
-            btnChangeFontSize.Text = "ZMIEŃ";
-            btnChangeFontSize.UseVisualStyleBackColor = true;
-            btnChangeFontSize.Click += btnChangeFontSize_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(87, 295);
+            label1.Name = "label1";
+            label1.Size = new Size(158, 30);
+            label1.TabIndex = 4;
+            label1.Text = "Zmień kolor tła:";
             // 
-            // numericUpDownFontSize
+            // label3
             // 
-            numericUpDownFontSize.Location = new Point(243, 557);
-            numericUpDownFontSize.Name = "numericUpDownFontSize";
-            numericUpDownFontSize.Size = new Size(120, 23);
-            numericUpDownFontSize.TabIndex = 3;
-            // 
-            // settingsTextBox
-            // 
-            settingsTextBox.BackColor = Color.Teal;
-            settingsTextBox.BorderStyle = BorderStyle.None;
-            settingsTextBox.Font = new Font("Segoe UI", 72F, FontStyle.Regular, GraphicsUnit.Point);
-            settingsTextBox.ForeColor = Color.White;
-            settingsTextBox.Location = new Point(377, 79);
-            settingsTextBox.Name = "settingsTextBox";
-            settingsTextBox.Size = new Size(646, 128);
-            settingsTextBox.TabIndex = 4;
-            settingsTextBox.Text = "USTAWIENIA";
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = Color.Teal;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(87, 282);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(221, 39);
-            textBox1.TabIndex = 5;
-            textBox1.Text = "Zmień kolor tła:";
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = Color.Teal;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(87, 443);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(306, 39);
-            textBox2.TabIndex = 6;
-            textBox2.Text = "Zmień rozmiar czcionki:";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 72F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.ButtonFace;
+            label3.Location = new Point(87, 84);
+            label3.Name = "label3";
+            label3.Size = new Size(594, 128);
+            label3.TabIndex = 6;
+            label3.Text = "USTAWIENIA";
             // 
             // Settings
             // 
@@ -118,16 +83,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             ClientSize = new Size(1264, 985);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(settingsTextBox);
-            Controls.Add(numericUpDownFontSize);
-            Controls.Add(btnChangeFontSize);
+            Controls.Add(label3);
+            Controls.Add(label1);
             Controls.Add(btnBackToMenu);
             Controls.Add(btnChangeBackColor);
             Name = "Settings";
             Text = "Settings";
-            ((System.ComponentModel.ISupportInitialize)numericUpDownFontSize).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,10 +97,7 @@
 
         private Button btnChangeBackColor;
         private Button btnBackToMenu;
-        private Button btnChangeFontSize;
-        private NumericUpDown numericUpDownFontSize;
-        private TextBox settingsTextBox;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private Label label1;
+        private Label label3;
     }
 }

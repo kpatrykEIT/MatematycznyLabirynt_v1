@@ -14,7 +14,6 @@ namespace MatematycznyLabirynt
         {
             // Ustaw kolor t³a na podstawie globalnych ustawieñ
             this.BackColor = SettingsClass.BackgroundColor;
-            UpdateFontSize(this, SettingsClass.FontSize);
             UpdateBackgroundColor(this, SettingsClass.BackgroundColor);
         }
         private void UpdateBackgroundColor(Control control, Color color)
@@ -35,19 +34,7 @@ namespace MatematycznyLabirynt
                 UpdateBackgroundColor(childControl, color);
             }
         }
-        private void UpdateFontSize(Control control, float fontSize)
-        {
-            if (control.Name != "textBox1")
-            {
-                control.Font = new Font(control.Font.FontFamily, fontSize);
-            }
-
-            // Rekurencyjnie przechodzimy przez wszystkie podkontrolki
-            foreach (Control childControl in control.Controls)
-            {
-                UpdateFontSize(childControl, fontSize); // Wywo³anie rekurencyjne dla podkontrolek
-            }
-        }
+        
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {

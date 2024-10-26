@@ -52,8 +52,6 @@ namespace MatematycznyLabirynt
 
             resetGame();
             this.Load += GameLoad;
-
-
             questionTimer.Start(); // Rozpoczęcie timera
         }
 

@@ -10,6 +10,6 @@ namespace MatematycznyLabirynt
     {
 
         public static Color BackgroundColor { get; set; } = Color.Teal; // Domyślny kolor
-        public static float FontSize { get; set; } = 10f; // Domyślny rozmiar czcionki
+        
     }
 }

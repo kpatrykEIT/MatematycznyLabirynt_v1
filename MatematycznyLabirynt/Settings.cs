@@ -16,7 +16,50 @@ namespace MatematycznyLabirynt
         {
             InitializeComponent();
             numericUpDownFontSize.Value = (decimal)SettingsClass.FontSize; // Ustaw początkową wartość
+            this.Load += SettingsLoad;
+
+
         }
+        private void ApplyBackgroundColorToAllOpenForms(Color color)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                UpdateBackgroundColor(form, color);
+            }
+        }
+
+        private void SettingsLoad(object? sender, EventArgs e)
+        {
+            //this.BackColor = SettingsClass.BackgroundColor;
+            UpdateBackgroundColor(this, SettingsClass.BackgroundColor);
+            UpdateFontSize(this, SettingsClass.FontSize);
+
+
+
+        }
+
+
+        private void UpdateBackgroundColor(Control control, Color color)
+        {
+            if (control is Label label)
+            {
+                label.BackColor = color;
+            }
+
+            else
+            {
+                control.BackColor = color; // Ustawia kolor tła dla pozostałych kontrolek
+            }
+
+            // Rekurencyjnie przechodzimy przez wszystkie podkontrolki
+            foreach (Control childControl in control.Controls)
+            {
+                UpdateBackgroundColor(childControl, color);
+            }
+        }
+
+
+
 
         private void btnChangeBackColor_Click(object sender, EventArgs e)
         {
@@ -29,6 +72,7 @@ namespace MatematycznyLabirynt
 
                     // Zaktualizuj kolor w otwartych formularzach
                     UpdateAllFormsBackgroundColor();
+                    ApplyBackgroundColorToAllOpenForms(SettingsClass.BackgroundColor);
                 }
             }
         }
@@ -49,26 +93,6 @@ namespace MatematycznyLabirynt
         }
 
 
-        private void btnChangeFontSize_Click(object sender, EventArgs e)
-        {
-            SettingsClass.FontSize = (float)numericUpDownFontSize.Value;
-            UpdateAllFormsFontSize();
-        }
-        private void UpdateAllFormsFontSize()
-        {
-            foreach (Form form in Application.OpenForms)
-            {
-                UpdateFormFont(form, SettingsClass.FontSize);
-            }
-        }
-
-        private void UpdateFormFont(Form form, float fontSize)
-        {
-            // Rekurencyjnie zmienia rozmiar czcionki wszystkich kontrolek na formularzu
-            foreach (Control control in form.Controls)
-            {
-                control.Font = new Font(control.Font.FontFamily, fontSize);
-            }
-        }
+        
     }
 }
