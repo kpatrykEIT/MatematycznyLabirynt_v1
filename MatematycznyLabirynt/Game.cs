@@ -14,10 +14,10 @@ namespace MatematycznyLabirynt
     {
 
 
-        bool goup, godown, goleft, goright, isGameOver;
+        bool goup, godown, goleft, goright;
         int playerSpeed;
         Point previousPosition;
-        private PictureBox currentQuestionBox;
+       
         private bool questionDisplayed = false;
 
 
@@ -41,7 +41,7 @@ namespace MatematycznyLabirynt
             EnablePlayerMovement();
             questionTimer.Start();
             timer1.Start();
-
+            SettingsClass.score = 0;
 
 
         }

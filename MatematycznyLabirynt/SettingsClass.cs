@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace MatematycznyLabirynt
 {
-    internal class SettingsClass
+    static public class SettingsClass
     {
 
         public static Color BackgroundColor { get; set; } = Color.Teal; // Domyślny kolor
-        public static int score { get; set; } 
+        public static int score;
+
+        // Zmienna Wynik z publicznym get i set
+        
 
     }
 }
