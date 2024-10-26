@@ -118,7 +118,7 @@ namespace MatematycznyLabirynt
         private void gameWon()
         {
             timer1.Stop(); // Zatrzymaj grę
-            MessageBox.Show("Gratulacje! Wygrałeś!");
+            MessageBox.Show("Gratulacje! Twój wynik z poziomu 2 to: "+SettingsClass.score+" punktów.");
             resetGame();
             this.Close();
             Game2 game2 = new Game2();
