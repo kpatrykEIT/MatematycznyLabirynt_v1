@@ -13,7 +13,7 @@ namespace MatematycznyLabirynt
     public partial class Game : Form
     {
 
-        
+
         bool goup, godown, goleft, goright, isGameOver;
         int playerSpeed;
         Point previousPosition;
@@ -42,7 +42,7 @@ namespace MatematycznyLabirynt
             questionTimer.Start();
             timer1.Start();
 
-           
+
 
         }
 
@@ -65,16 +65,17 @@ namespace MatematycznyLabirynt
         private void ShowMathQuestion(object sender, EventArgs e)
         {
 
-            
+
+
             if (!questionDisplayed)
-            { 
+            {
 
                 questionDisplayed = true; // Ustaw flagę na true, aby blokować wyświetlanie kolejnych pytań
                 DisablePlayerMovement();
                 // Tworzenie okna pytania
                 questionTimer.Stop();
                 MathQuestions mathQuestions = new MathQuestions();
-               DialogResult result = mathQuestions.ShowDialog(); // Pokaż okno dialogowe
+                DialogResult result = mathQuestions.ShowDialog(); // Pokaż okno dialogowe
 
                 if (true) // Jeśli gracz odpowiedział
                 {
@@ -84,12 +85,15 @@ namespace MatematycznyLabirynt
                         //MessageBox.Show("Odpowiedź poprawna! Możesz grać dalej.");
                         EnablePlayerMovement();
                         //player.Location = previousPosition;
+
+                        SettingsClass.score += 5;
+                        labelScore.Text = "Wynik: "+SettingsClass.score;
                     }
                     else
                     {
                         // Odpowiedź błędna, resetuj grę
                         resetGame();
-                       // MessageBox.Show("Błędna odpowiedź! Gra zostanie zresetowana.");
+                        // MessageBox.Show("Błędna odpowiedź! Gra zostanie zresetowana.");
 
 
                     }
@@ -101,10 +105,10 @@ namespace MatematycznyLabirynt
         }
 
 
-        
 
 
-        
+
+
 
 
 
@@ -268,6 +272,6 @@ namespace MatematycznyLabirynt
 
         }
 
-        
+
     }
 }

@@ -22,7 +22,7 @@ namespace MatematycznyLabirynt
         {
             // Ustaw kolor tła na podstawie globalnych ustawień
             this.BackColor = SettingsClass.BackgroundColor;
-           
+
         }
     }
 }

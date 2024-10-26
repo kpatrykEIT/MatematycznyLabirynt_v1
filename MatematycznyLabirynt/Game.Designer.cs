@@ -96,6 +96,7 @@
             player = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
             questionTimer = new System.Windows.Forms.Timer(components);
+            labelScore = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -822,12 +823,24 @@
             questionTimer.Interval = 10000;
             questionTimer.Tick += ShowMathQuestion;
             // 
+            // labelScore
+            // 
+            labelScore.AutoSize = true;
+            labelScore.Font = new Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point);
+            labelScore.ForeColor = SystemColors.ButtonFace;
+            labelScore.Location = new Point(867, 9);
+            labelScore.Name = "labelScore";
+            labelScore.Size = new Size(279, 86);
+            labelScore.TabIndex = 65;
+            labelScore.Text = "Wynik: 0";
+            // 
             // Game
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             ClientSize = new Size(1281, 896);
+            Controls.Add(labelScore);
             Controls.Add(player);
             Controls.Add(winningSpot);
             Controls.Add(pictureBox62);
@@ -1034,5 +1047,6 @@
         private PictureBox player;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer questionTimer;
+        private Label labelScore;
     }
 }

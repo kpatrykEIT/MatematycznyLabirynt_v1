@@ -30,6 +30,7 @@
         {
             levelTwoLabel = new Label();
             label1 = new Label();
+            labelScore = new Label();
             SuspendLayout();
             // 
             // levelTwoLabel
@@ -52,12 +53,24 @@
             label1.TabIndex = 2;
             label1.Text = "label1";
             // 
+            // labelScore
+            // 
+            labelScore.AutoSize = true;
+            labelScore.Font = new Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point);
+            labelScore.ForeColor = SystemColors.ButtonFace;
+            labelScore.Location = new Point(852, 9);
+            labelScore.Name = "labelScore";
+            labelScore.Size = new Size(279, 86);
+            labelScore.TabIndex = 66;
+            labelScore.Text = "Wynik: 0";
+            // 
             // Game2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             ClientSize = new Size(1264, 985);
+            Controls.Add(labelScore);
             Controls.Add(label1);
             Controls.Add(levelTwoLabel);
             ForeColor = Color.White;
@@ -71,5 +84,6 @@
 
         private Label levelTwoLabel;
         private Label label1;
+        private Label labelScore;
     }
 }

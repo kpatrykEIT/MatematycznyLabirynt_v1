@@ -29,11 +29,7 @@ namespace MatematycznyLabirynt
 
         private void SettingsLoad(object? sender, EventArgs e)
         {
-            //this.BackColor = SettingsClass.BackgroundColor;
             UpdateBackgroundColor(this, SettingsClass.BackgroundColor);
-
-
-
 
         }
 
