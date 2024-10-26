@@ -7,7 +7,48 @@ namespace MatematycznyLabirynt
             InitializeComponent();
             this.ActiveControl = null;
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
+            this.Load += MainFormLoad;
         }
+
+        private void MainFormLoad(object sender, EventArgs e)
+        {
+            // Ustaw kolor t³a na podstawie globalnych ustawieñ
+            this.BackColor = SettingsClass.BackgroundColor;
+            UpdateFontSize(this, SettingsClass.FontSize);
+            UpdateBackgroundColor(this, SettingsClass.BackgroundColor);
+        }
+        private void UpdateBackgroundColor(Control control, Color color)
+        {
+            // Zmieñ t³o, jeœli kontrolka jest typu Label lub dla ca³ego formularza
+            if (control is Label label)
+            {
+                label.BackColor = color;
+            }
+            else
+            {
+                control.BackColor = color;
+            }
+
+            // Rekurencyjnie zmieniamy t³o dla podkontrolek
+            foreach (Control childControl in control.Controls)
+            {
+                UpdateBackgroundColor(childControl, color);
+            }
+        }
+        private void UpdateFontSize(Control control, float fontSize)
+        {
+            if (control.Name != "textBox1")
+            {
+                control.Font = new Font(control.Font.FontFamily, fontSize);
+            }
+
+            // Rekurencyjnie przechodzimy przez wszystkie podkontrolki
+            foreach (Control childControl in control.Controls)
+            {
+                UpdateFontSize(childControl, fontSize); // Wywo³anie rekurencyjne dla podkontrolek
+            }
+        }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Zamyka ca³¹ aplikacjê, gdy MainMenu zostaje zamkniête
@@ -32,6 +73,13 @@ namespace MatematycznyLabirynt
             this.Hide();
             Game game1 = new Game();
             game1.Show();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Settings settings = new Settings();
+            settings.Show();
         }
     }
 }

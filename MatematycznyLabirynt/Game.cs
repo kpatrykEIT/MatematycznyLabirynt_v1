@@ -51,10 +51,17 @@ namespace MatematycznyLabirynt
             InitializeComponent();
 
             resetGame();
-
+            this.Load += GameLoad;
 
 
             questionTimer.Start(); // Rozpoczęcie timera
+        }
+
+        private void GameLoad(object sender, EventArgs e)
+        {
+            // Ustaw kolor tła na podstawie globalnych ustawień
+            this.BackColor = SettingsClass.BackgroundColor;
+
         }
 
         private void ShowMathQuestion(object sender, EventArgs e)

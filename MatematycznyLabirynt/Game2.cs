@@ -15,6 +15,14 @@ namespace MatematycznyLabirynt
         public Game2()
         {
             InitializeComponent();
+            this.Load += Game2Load;
+        }
+
+        private void Game2Load(object sender, EventArgs e)
+        {
+            // Ustaw kolor tła na podstawie globalnych ustawień
+            this.BackColor = SettingsClass.BackgroundColor;
+           
         }
     }
 }
