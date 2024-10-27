@@ -94,7 +94,7 @@
             Controls.Add(textBox1);
             Controls.Add(btnHomeForm);
             Name = "Rules";
-            Text = "Form2";
+            Text = "Zasady gry";
             ResumeLayout(false);
             PerformLayout();
         }

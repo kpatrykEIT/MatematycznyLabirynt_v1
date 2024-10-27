@@ -75,7 +75,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Location = new Point(500, 500);
             Name = "MathQuestions";
-            Text = "MathQuestions";
+            Text = "Pytanie";
             ResumeLayout(false);
             PerformLayout();
         }

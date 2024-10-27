@@ -18,8 +18,8 @@ namespace MatematycznyLabirynt
         private Random random = new Random();
         private int correctAnswer;
         private static bool isDivision = true;
-        public  bool isCorrect;
-       
+        public bool isCorrect;
+
 
         public MathQuestions()
         {
@@ -70,7 +70,7 @@ namespace MatematycznyLabirynt
         }
 
 
-        
+
 
         private void btnAnswer1_Click(object sender, EventArgs e)
         {
@@ -92,7 +92,7 @@ namespace MatematycznyLabirynt
             {
                 isCorrect = false;
                 MessageBox.Show("Błędna odpowiedź! Gra zostanie zresetowana", "Spróbuj ponownie");
-                
+
             }
 
             isDivision = !isDivision;

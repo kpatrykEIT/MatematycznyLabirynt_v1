@@ -90,7 +90,7 @@
             Controls.Add(btnBackToMenu);
             Controls.Add(btnChangeBackColor);
             Name = "Settings";
-            Text = "Settings";
+            Text = "Ustawienia";
             ResumeLayout(false);
             PerformLayout();
         }
