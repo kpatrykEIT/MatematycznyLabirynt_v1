@@ -10,10 +10,10 @@ namespace MatematycznyLabirynt
     {
 
         public static Color BackgroundColor { get; set; } = Color.Teal; // Domyślny kolor
-        public static int score;
+        public static int score;                                        // Zmienna Wynik z publicznym get i set
 
-        // Zmienna Wynik z publicznym get i set
-        
+
+
 
     }
 }

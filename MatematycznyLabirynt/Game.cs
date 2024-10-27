@@ -8,29 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+// ***********************************
+//
+// Formularz zawierający poziom pierwszy
+// gry.
+//
+// Game.cs
+//
+// ***********************************
+
+
+
+
 namespace MatematycznyLabirynt
 {
     public partial class Game : Form
     {
 
+        // Zmienne wykorzystane w formularzu.
 
         bool goup, godown, goleft, goright;
         int playerSpeed;
         Point previousPosition;
-
         private bool questionDisplayed = false;
 
+        // Wyłącz możliwość poruszania się
 
         private void DisablePlayerMovement()
         {
-            goup = godown = goleft = goright = false; // Wyłącz możliwość poruszania się
-        }
-        private void EnablePlayerMovement()
-        {
-            // Ruch zostanie przywrócony po odpowiedzi na pytanie
-            // Można też dostosować do potrzeb (jeśli np. mają być inne warunki poruszania się)
+            goup = godown = goleft = goright = false; 
         }
 
+        // Zresetuj stan gry.
 
         private void resetGame()
         {
@@ -38,7 +48,6 @@ namespace MatematycznyLabirynt
             player.Left = 167;
             player.Top = 769;
             playerSpeed = 10;
-            EnablePlayerMovement();
             questionTimer.Start();
             timer1.Start();
             SettingsClass.score = 0;
@@ -63,16 +72,17 @@ namespace MatematycznyLabirynt
 
         }
 
+        // Losuj pytanie co każde przepełnienie licznika.
+
         private void ShowMathQuestion(object sender, EventArgs e)
-        {
-
-
+        { 
 
             if (!questionDisplayed)
             {
 
                 questionDisplayed = true; // Ustaw flagę na true, aby blokować wyświetlanie kolejnych pytań
                 DisablePlayerMovement();
+
                 // Tworzenie okna pytania
                 questionTimer.Stop();
                 MathQuestions mathQuestions = new MathQuestions();
@@ -83,18 +93,16 @@ namespace MatematycznyLabirynt
                     if (mathQuestions.isCorrect) // Sprawdzenie poprawności odpowiedzi
                     {
                         // Odpowiedź poprawna, pozwól grać dalej
-                        //MessageBox.Show("Odpowiedź poprawna! Możesz grać dalej.");
-                        EnablePlayerMovement();
-                        //player.Location = previousPosition;
-
+                      
                         SettingsClass.score += 5;
                         labelScore.Text = "Wynik: " + SettingsClass.score;
                     }
                     else
                     {
                         // Odpowiedź błędna, resetuj grę
+
                         resetGame();
-                        // MessageBox.Show("Błędna odpowiedź! Gra zostanie zresetowana.");
+                       
 
 
                     }
@@ -105,14 +113,7 @@ namespace MatematycznyLabirynt
 
         }
 
-
-
-
-
-
-
-
-
+        // Funkcja związana z przejściem poziomu.
         private void gameWon()
         {
             timer1.Stop(); // Zatrzymaj grę
@@ -123,6 +124,8 @@ namespace MatematycznyLabirynt
             game2.Show();
 
         }
+
+        // Obsługa zdarzenia KeyDown
 
         private void keyDown(object sender, KeyEventArgs e)
         {
@@ -144,6 +147,8 @@ namespace MatematycznyLabirynt
             }
         }
 
+        // Obsługa zdarzenia KeyUp
+
         private void keyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
@@ -164,7 +169,7 @@ namespace MatematycznyLabirynt
             }
         }
 
-
+        // Główny licznik gry.
 
         private void mainGameTimer(object sender, EventArgs e)
         {
@@ -192,14 +197,14 @@ namespace MatematycznyLabirynt
             }
 
 
-
+            // Sprawdz elementy formularza.
 
 
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox)
                 {
-                    if ((string)x.Tag == "wall")
+                    if ((string)x.Tag == "wall") // Ściana.
                     {
                         if (player.Bounds.IntersectsWith(x.Bounds))
                         {
@@ -208,7 +213,7 @@ namespace MatematycznyLabirynt
 
                         }
                     }
-                    if ((string)x.Tag == "winningSpot")
+                    if ((string)x.Tag == "winningSpot") // Miejsce wygranej.
                     {
                         if (player.Bounds.IntersectsWith(x.Bounds))
                         {
@@ -217,62 +222,11 @@ namespace MatematycznyLabirynt
                         }
                     }
 
-                    /*
-                    if ((string)x.Tag == "question" && player.Bounds.IntersectsWith(x.Bounds))
-                    {
-                        if (!questionDisplayed)
-                        {
-
-                            questionDisplayed = true;
-                            currentQuestionBox = (PictureBox)x; // Przypisz aktualny PictureBox z pytaniem
-
-
-                            MathQuestions mathQuestions = new MathQuestions();
-                            
-                            if(mathQuestions.ShowDialog() == DialogResult.OK)
-                            {
-                                if (!mathQuestions.isCorrect)
-                                {
-                                    MessageBox.Show("Gra zostanie zrestartowana!", "Przegrana");
-                                    resetGame();
-
-                                }
-                                else if (mathQuestions.isCorrect)
-                                {
-                                    currentQuestionBox.Enabled = false;
-
-                                }
-
-                            }
-
-                            questionDisplayed = false;
-
-                            //player.Location = previousPosition;
-
-                            // Resetuj flagę pytania
-
-                        } 
-
-
-
-
-                    }
-                    */
-
                 }
 
             }
 
 
         }
-
-
-
-        private void gameOver()
-        {
-
-        }
-
-
     }
 }

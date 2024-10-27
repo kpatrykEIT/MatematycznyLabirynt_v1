@@ -8,29 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// ***********************************
+//
+// Formularz zawierający poziom trzeci
+// gry.
+//
+// Game3.cs
+//
+// ***********************************
+
+
 namespace MatematycznyLabirynt
 {
     public partial class Game3 : Form
     {
 
+        // Zmienne wykorzystywane w formularzu.
 
         bool goup, godown, goleft, goright;
         int playerSpeed;
         Point previousPosition;
-
         private bool questionDisplayed = false;
 
-
+        // Wyłącz możliwość poruszania się
         private void DisablePlayerMovement()
         {
             goup = godown = goleft = goright = false; // Wyłącz możliwość poruszania się
         }
-        private void EnablePlayerMovement()
-        {
-            // Ruch zostanie przywrócony po odpowiedzi na pytanie
-            // Można też dostosować do potrzeb (jeśli np. mają być inne warunki poruszania się)
-        }
-
+        
+        // Zresetuj stan gry.
 
         private void resetGame()
         {
@@ -38,7 +44,6 @@ namespace MatematycznyLabirynt
             player3.Left = 620;
             player3.Top = 160;
             playerSpeed = 10;
-            EnablePlayerMovement();
             questionTimer.Start();
             timer1.Start();
             SettingsClass.score = 0;
@@ -65,10 +70,10 @@ namespace MatematycznyLabirynt
 
         }
 
+        // Losuj pytanie co każde przepełnienie licznika.
+
         private void ShowMathQuestion(object sender, EventArgs e)
         {
-
-
 
             if (!questionDisplayed)
             {
@@ -85,10 +90,7 @@ namespace MatematycznyLabirynt
                     if (mathQuestions.isCorrect) // Sprawdzenie poprawności odpowiedzi
                     {
                         // Odpowiedź poprawna, pozwól grać dalej
-                        //MessageBox.Show("Odpowiedź poprawna! Możesz grać dalej.");
-                        EnablePlayerMovement();
-                        //player.Location = previousPosition;
-
+                      
                         SettingsClass.score += 5;
                         labelScore.Text = "Wynik: " + SettingsClass.score;
                     }
@@ -96,7 +98,6 @@ namespace MatematycznyLabirynt
                     {
                         // Odpowiedź błędna, resetuj grę
                         resetGame();
-                        // MessageBox.Show("Błędna odpowiedź! Gra zostanie zresetowana.");
 
 
                     }
@@ -107,14 +108,7 @@ namespace MatematycznyLabirynt
 
         }
 
-
-
-
-
-
-
-
-
+        // Funkcja związana z przejściem poziomu.
         private void gameWon()
         {
             timer1.Stop(); // Zatrzymaj grę
@@ -126,6 +120,8 @@ namespace MatematycznyLabirynt
 
 
         }
+
+        // Obsługa zdarzenia KeyDown
 
         private void keyDown(object sender, KeyEventArgs e)
         {
@@ -147,6 +143,8 @@ namespace MatematycznyLabirynt
             }
         }
 
+        // Obsługa zdarzenia KeyUp
+
         private void keyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
@@ -167,7 +165,7 @@ namespace MatematycznyLabirynt
             }
         }
 
-
+        // Główny licznik gry.
 
         private void mainGameTimer(object sender, EventArgs e)
         {
@@ -195,8 +193,7 @@ namespace MatematycznyLabirynt
             }
 
 
-
-
+            // Sprawdz elementy formularza.
 
             foreach (Control x in this.Controls)
             {
@@ -220,62 +217,12 @@ namespace MatematycznyLabirynt
                         }
                     }
 
-                    /*
-                    if ((string)x.Tag == "question" && player.Bounds.IntersectsWith(x.Bounds))
-                    {
-                        if (!questionDisplayed)
-                        {
-
-                            questionDisplayed = true;
-                            currentQuestionBox = (PictureBox)x; // Przypisz aktualny PictureBox z pytaniem
-
-
-                            MathQuestions mathQuestions = new MathQuestions();
-                            
-                            if(mathQuestions.ShowDialog() == DialogResult.OK)
-                            {
-                                if (!mathQuestions.isCorrect)
-                                {
-                                    MessageBox.Show("Gra zostanie zrestartowana!", "Przegrana");
-                                    resetGame();
-
-                                }
-                                else if (mathQuestions.isCorrect)
-                                {
-                                    currentQuestionBox.Enabled = false;
-
-                                }
-
-                            }
-
-                            questionDisplayed = false;
-
-                            //player.Location = previousPosition;
-
-                            // Resetuj flagę pytania
-
-                        } 
-
-
-
-
-                    }
-                    */
-
                 }
 
             }
 
 
         }
-
-
-
-        private void gameOver()
-        {
-
-        }
-
 
     }
 }

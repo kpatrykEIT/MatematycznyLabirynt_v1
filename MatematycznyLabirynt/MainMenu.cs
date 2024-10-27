@@ -1,3 +1,16 @@
+
+
+// ***********************************
+//
+// Formularz zawieraj¹cy g³ówny interfejs
+// graficzny.
+//
+// MainMenu.cs
+//
+// ***********************************
+
+
+
 namespace MatematycznyLabirynt
 {
     public partial class MainMenu : Form
@@ -16,9 +29,12 @@ namespace MatematycznyLabirynt
             this.BackColor = SettingsClass.BackgroundColor;
             UpdateBackgroundColor(this, SettingsClass.BackgroundColor);
         }
+
+        // Przejœcie przez wszystkie elementy formularza.
         private void UpdateBackgroundColor(Control control, Color color)
         {
             // Zmieñ t³o, jeœli kontrolka jest typu Label lub dla ca³ego formularza
+
             if (control is Label label)
             {
                 label.BackColor = color;
@@ -28,7 +44,8 @@ namespace MatematycznyLabirynt
                 control.BackColor = color;
             }
 
-            // Rekurencyjnie zmieniamy t³o dla podkontrolek
+            // Rekurencja wykorzystana, aby przejœæ przez pozosta³e elementy w formularzu.
+
             foreach (Control childControl in control.Controls)
             {
                 UpdateBackgroundColor(childControl, color);
@@ -39,9 +56,11 @@ namespace MatematycznyLabirynt
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Zamyka ca³¹ aplikacjê, gdy MainMenu zostaje zamkniête
+
             Application.Exit();
         }
 
+        // Obs³uga zdarzenia klikniêcia w przyciski.
         private void btnHowToPlay_Click(object sender, EventArgs e)
         {
             Rules form2 = new Rules();

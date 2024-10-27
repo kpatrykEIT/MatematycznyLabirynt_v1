@@ -8,6 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+// ***********************************
+//
+// Formularz zawierający opcję
+// zmiany koloru tła wszystkich
+// formularzy w projekcie.
+//
+// Settings.cs
+//
+// ***********************************
+
 namespace MatematycznyLabirynt
 {
     public partial class Settings : Form
@@ -16,9 +28,9 @@ namespace MatematycznyLabirynt
         {
             InitializeComponent();
             this.Load += SettingsLoad;
-
-
         }
+
+        // Załaduj wybrany kolor tła formularzy.
         private void ApplyBackgroundColorToAllOpenForms(Color color)
         {
             foreach (Form form in Application.OpenForms)
@@ -33,6 +45,7 @@ namespace MatematycznyLabirynt
 
         }
 
+        // Przejście przez wszystkie elementy formularza.
 
         private void UpdateBackgroundColor(Control control, Color color)
         {
@@ -43,10 +56,13 @@ namespace MatematycznyLabirynt
 
             else
             {
-                control.BackColor = color; // Ustawia kolor tła dla pozostałych kontrolek
+                // Ustawia kolor tła dla elementów w formularzu.
+
+                control.BackColor = color; 
             }
 
-            // Rekurencyjnie przechodzimy przez wszystkie podkontrolki
+            // Rekurencja wykorzystana, aby przejść przez pozostałe elementy w formularzu.
+
             foreach (Control childControl in control.Controls)
             {
                 UpdateBackgroundColor(childControl, color);
@@ -54,7 +70,7 @@ namespace MatematycznyLabirynt
         }
 
 
-
+        // Obsługa zdarzenia kliknięcia przycisku związanego ze zmianą koloru.
 
         private void btnChangeBackColor_Click(object sender, EventArgs e)
         {
@@ -63,15 +79,18 @@ namespace MatematycznyLabirynt
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                     // Zapisz wybrany kolor w ustawieniach
+
                     SettingsClass.BackgroundColor = colorDialog.Color;
 
                     // Zaktualizuj kolor w otwartych formularzach
+
                     UpdateAllFormsBackgroundColor();
                     ApplyBackgroundColorToAllOpenForms(SettingsClass.BackgroundColor);
                 }
             }
         }
 
+        // Zmiana koloru tła w formularzach.
         private void UpdateAllFormsBackgroundColor()
         {
             foreach (Form form in Application.OpenForms)
@@ -79,7 +98,8 @@ namespace MatematycznyLabirynt
                 form.BackColor = SettingsClass.BackgroundColor;
             }
         }
-
+        
+        // Obsługa zdarzenia kliknięcia przycisku związanym z powrotem do głównego menu.
         private void btnBackToMenu_Click(object sender, EventArgs e)
         {
             this.Close();

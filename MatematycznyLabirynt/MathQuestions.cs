@@ -8,12 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// ***********************************
+//
+// Formularz zawierający algorytm
+// losowania i wyświetlania
+// zagadek matematycznych na
+// wszystkich poziomach gry.
+//
+// MathQuestions.cs
+//
+// ***********************************
+
+
 namespace MatematycznyLabirynt
 {
     public partial class MathQuestions : Form
     {
 
-
+        // Zmienne wykorzystywane w formularzu.
 
         private Random random = new Random();
         private int correctAnswer;
@@ -27,6 +39,8 @@ namespace MatematycznyLabirynt
             GenerateMathTask();
         }
 
+        // Generowanie działań matematycznych.
+
         private void GenerateMathTask()
         {
 
@@ -35,17 +49,18 @@ namespace MatematycznyLabirynt
 
             if (isDivision)
             {
-                // Generowanie pytania z dzielenia
-                num2 = random.Next(1, 5); // Licznik nie może być zerem
-                correctAnswer = random.Next(1, 10) * num2; // Generowanie liczby podzielnej
-                num1 = correctAnswer; // Ustawienie liczby podzielnej
-                correctAnswer /= num2; // Obliczenie poprawnej odpowiedzi
+                
+                num2 = random.Next(1, 5);                    // Licznik nie może być zerem
+                correctAnswer = random.Next(1, 10) * num2;   // Generowanie liczby podzielnej
+                num1 = correctAnswer;                        // Ustawienie liczby podzielnej
+                correctAnswer /= num2;                       // Obliczenie poprawnej odpowiedzi
 
                 questionLabel.Text = $"Ile to jest {num1} ÷ {num2}?";
             }
             else
             {
                 // Generowanie pytania z mnożenia
+
                 num1 = random.Next(1, 10);
                 num2 = random.Next(1, 10);
                 correctAnswer = num1 * num2;
@@ -54,6 +69,7 @@ namespace MatematycznyLabirynt
             }
 
             // Losowanie przycisków – jeden z poprawną, drugi z błędną odpowiedzią
+
             if (random.Next(2) == 0)
             {
                 btnAnswer1.Text = correctAnswer.ToString();
@@ -71,7 +87,7 @@ namespace MatematycznyLabirynt
 
 
 
-
+        // Obsługa zdarzeń kliknięcia na przyciski.
         private void btnAnswer1_Click(object sender, EventArgs e)
         {
             CheckAnswer(btnAnswer1.Text);
@@ -81,6 +97,8 @@ namespace MatematycznyLabirynt
         {
             CheckAnswer(btnAnswer2.Text);
         }
+
+        // Funkcja sprawdzająca czy odpowiedź była poprawna.
         private void CheckAnswer(string answer)
         {
             if (answer == correctAnswer.ToString())

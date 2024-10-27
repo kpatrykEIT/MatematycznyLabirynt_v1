@@ -8,6 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// ***********************************
+//
+// Formularz zawierający zasady gry
+// i sterowania.
+//
+// Rules.cs
+//
+// ***********************************
+
+
+
 namespace MatematycznyLabirynt
 {
     public partial class Rules : Form
@@ -17,7 +28,7 @@ namespace MatematycznyLabirynt
             InitializeComponent();
         }
 
-
+        // Obsługa zdarzenia kliknięcia przycisku związanym z powrotem do głównego menu.
 
         private void btnHomeForm_Click(object sender, EventArgs e)
         {
