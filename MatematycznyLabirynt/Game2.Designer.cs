@@ -183,7 +183,7 @@
             labelScore.Name = "labelScore";
             labelScore.Size = new Size(244, 86);
             labelScore.TabIndex = 66;
-            labelScore.Text = "Wynik: "+SettingsClass.score;
+            labelScore.Text = "Wynik: ";
             // 
             // timer1
             // 
@@ -908,7 +908,7 @@
             Controls.Add(levelTwoLabel);
             ForeColor = Color.White;
             Name = "Game2";
-            Text = "Game2";
+            Text = "Poziom 2";
             KeyDown += keyDown;
             KeyUp += keyUp;
             ((System.ComponentModel.ISupportInitialize)player2).EndInit();

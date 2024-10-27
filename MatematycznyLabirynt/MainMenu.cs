@@ -58,8 +58,8 @@ namespace MatematycznyLabirynt
         private void btnPlay_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Game game1 = new Game();
-            game1.Show();
+            Game game = new Game();
+            game.Show();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

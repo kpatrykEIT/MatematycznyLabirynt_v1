@@ -17,7 +17,7 @@ namespace MatematycznyLabirynt
         bool goup, godown, goleft, goright;
         int playerSpeed;
         Point previousPosition;
-       
+
         private bool questionDisplayed = false;
 
 
@@ -88,7 +88,7 @@ namespace MatematycznyLabirynt
                         //player.Location = previousPosition;
 
                         SettingsClass.score += 5;
-                        labelScore.Text = "Wynik: "+SettingsClass.score;
+                        labelScore.Text = "Wynik: " + SettingsClass.score;
                     }
                     else
                     {
@@ -116,7 +116,7 @@ namespace MatematycznyLabirynt
         private void gameWon()
         {
             timer1.Stop(); // Zatrzymaj grę
-            MessageBox.Show("Gratulacje! Twój wynik z poziomu 1 to: "+SettingsClass.score+" punktów.");
+            MessageBox.Show("Gratulacje! Twój wynik z poziomu 1 to: " + SettingsClass.score + " punktów.");
             resetGame();
             this.Close();
             Game2 game2 = new Game2();

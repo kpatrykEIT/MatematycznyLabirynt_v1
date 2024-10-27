@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MatematycznyLabirynt
 {
-    public partial class Game2 : Form
+    public partial class Game3 : Form
     {
 
 
@@ -35,8 +35,8 @@ namespace MatematycznyLabirynt
         private void resetGame()
         {
 
-            player2.Left = 96;
-            player2.Top = 188;
+            player3.Left = 620;
+            player3.Top = 160;
             playerSpeed = 10;
             EnablePlayerMovement();
             questionTimer.Start();
@@ -48,7 +48,7 @@ namespace MatematycznyLabirynt
 
         }
 
-        public Game2()
+        public Game3()
         {
             InitializeComponent();
             resetGame();
@@ -118,11 +118,12 @@ namespace MatematycznyLabirynt
         private void gameWon()
         {
             timer1.Stop(); // Zatrzymaj grę
-            MessageBox.Show("Gratulacje! Twój wynik z poziomu 2 to: " + SettingsClass.score + " punktów.");
+            MessageBox.Show("Gratulacje! Twój wynik z poziomu 3 to: " + SettingsClass.score + " punktów.");
             resetGame();
             this.Close();
-            Game3 game3 = new Game3();
-            game3.Show();
+            MainMenu menu = new MainMenu();
+            menu.Show();
+
 
         }
 
@@ -174,23 +175,23 @@ namespace MatematycznyLabirynt
             if (questionDisplayed) return;
 
 
-            previousPosition = player2.Location;
+            previousPosition = player3.Location;
 
             if (goleft)
             {
-                player2.Left -= playerSpeed;
+                player3.Left -= playerSpeed;
             }
             if (goright)
             {
-                player2.Left += playerSpeed;
+                player3.Left += playerSpeed;
             }
             if (goup)
             {
-                player2.Top -= playerSpeed;
+                player3.Top -= playerSpeed;
             }
             if (godown)
             {
-                player2.Top += playerSpeed;
+                player3.Top += playerSpeed;
             }
 
 
@@ -203,16 +204,16 @@ namespace MatematycznyLabirynt
                 {
                     if ((string)x.Tag == "wall")
                     {
-                        if (player2.Bounds.IntersectsWith(x.Bounds))
+                        if (player3.Bounds.IntersectsWith(x.Bounds))
                         {
-                            player2.Location = previousPosition;
+                            player3.Location = previousPosition;
                             break;
 
                         }
                     }
                     if ((string)x.Tag == "winningSpot")
                     {
-                        if (player2.Bounds.IntersectsWith(x.Bounds))
+                        if (player3.Bounds.IntersectsWith(x.Bounds))
                         {
                             gameWon();
 
